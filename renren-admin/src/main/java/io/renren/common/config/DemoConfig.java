@@ -41,16 +41,16 @@ public class DemoConfig {
             String uri = request.getRequestURI();
             String[] filters = new String[]{"save","update","delete","password"};
             //判断是否包含
-            for(String filter : filters){
-                if(uri.indexOf(filter) != -1){
-                    R r = R.error(HttpStatus.SC_UNAUTHORIZED, "测试环境，不能操作！");
-                    String json = new Gson().toJson(r);
-
-                    response.setContentType("application/json;charset=utf-8");
-                    response.getWriter().print(json);
-                    return;
-                }
-            }
+//            for(String filter : filters){
+//                if(uri.indexOf(filter) != -1){
+//                    R r = R.error(HttpStatus.SC_UNAUTHORIZED, "测试环境，不能操作！");
+//                    String json = new Gson().toJson(r);
+//
+//                    response.setContentType("application/json;charset=utf-8");
+//                    response.getWriter().print(json);
+//                    return;
+//                }
+//            }
 
             filterChain.doFilter(servletRequest, servletResponse);
         }
